@@ -17,17 +17,19 @@ export class HTTPAuth implements IAuthentication {
 		this.logger = logger.context('HTTPAuth');
 	}
 
-	async authenticate(username: string, password: string) {
+	async authenticate(email: string, password: string) {
 		const result = await fetch(this.url, {
 			method: 'post',
 			body: JSON.stringify({
-				username,
-				password,
+				credentials: [
+					email,
+					password,
+				]
 			}),
 			headers: { 
 				'Content-Type': 'application/json',
 				'Access-Control-Allow-Credentials': 'true',
-				'Credentials': 'same-origin',
+				'X-Requested-With': 'XMLHttpRequest',
 			},
 		});
 
