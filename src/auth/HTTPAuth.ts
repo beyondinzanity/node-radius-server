@@ -1,4 +1,5 @@
 import fetch from 'node-fetch';
+import axios, { AxiosRequestConfig, AxiosPromise } from 'axios';
 import { IAuthentication } from '../interfaces/Authentication.js';
 import { IContextLogger, ILogger } from '../interfaces/Logger.js';
 
@@ -22,7 +23,6 @@ export class HTTPAuth implements IAuthentication {
 			body: JSON.stringify({
 				username,
 				password,
-				remember: null,
 			}),
 			headers: { 
 				'Content-Type': 'application/json',
