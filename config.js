@@ -25,7 +25,7 @@ export default {
 		// ticketKeys: Buffer.from('123456789012345678901234567890123456789012345678'),
 	},
 
-	// GoogleLDAPAuth (optimized for google auth)
+	/** // GoogleLDAPAuth (optimized for google auth)
 	authentication: 'GoogleLDAPAuth',
 	authenticationOptions: {
 		base: 'dc=hokify,dc=com',
@@ -34,7 +34,8 @@ export default {
 			keyFile: 'ldap.gsuite.key',
 			certFile: 'ldap.gsuite.crt',
 		},
-	},
+	}, 
+	*/
 
 	/** LDAP AUTH 
 	authentication: 'LDAPAuth',
@@ -52,16 +53,18 @@ export default {
 	}, 
 	 */
 
-	/** static auth 
+	/** //static auth 
 	authentication: 'StaticAuth',
 	authenticationOptions: {
 		validCredentials: [
 			{ username: 'test@hokify.com', password: 'test' },
 			{ username: 'user1@asdf.com', password: 'password' },
 			{ username: 'admin@hallo.com', password: 'cool' },
+			{ username: 'test', password: 'test' },
 		],
 	},
-	 */
+	*/
+	
 
 	/** VLAN CONFIG
 	vlan: 400,
@@ -77,10 +80,12 @@ export default {
 	}
 	 */
 
-	/** HTTP AUTH 
+	  //HTTP AUTH 
 	authentication: 'HTTPAuth',
 	authenticationOptions: {
-		url: 'https://my-website.com/api/backend-login'
+		//Example:
+		//url: 'https://my-website.com/api/backend-login'
+		url: 'http://utility.oo/login'
 	}
-	*/
+
 };

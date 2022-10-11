@@ -22,11 +22,18 @@ export class HTTPAuth implements IAuthentication {
 			body: JSON.stringify({
 				username,
 				password,
+				remember: null,
 			}),
-			headers: { 'Content-Type': 'application/json' },
+			headers: { 
+				'Content-Type': 'application/json',
+				'Access-Control-Allow-Credentials': 'true',
+				'Credentials': 'same-origin',
+			},
 		});
 
 		if (result.status === 200) {
+			return true;
+		} else if (result.status === 204) {
 			return true;
 		}
 
