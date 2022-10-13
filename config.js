@@ -85,7 +85,7 @@ export default {
 	authenticationOptions: {
 		//Example:
 		//url: 'https://my-website.com/api/backend-login'
-		url: 'http://authenticationserver.oo/login/'
+		url: 'http://authenticationserver.oo/login'
 	}
 
 };

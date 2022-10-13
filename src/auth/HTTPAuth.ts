@@ -1,5 +1,4 @@
 import fetch from 'node-fetch';
-import axios, { AxiosRequestConfig, AxiosPromise } from 'axios';
 import { IAuthentication } from '../interfaces/Authentication.js';
 import { IContextLogger, ILogger } from '../interfaces/Logger.js';
 
@@ -21,21 +20,18 @@ export class HTTPAuth implements IAuthentication {
 		const result = await fetch(this.url, {
 			method: 'post',
 			body: JSON.stringify({
-				credentials: [
-					email,
-					password,
-				]
+				email,
+				password,
 			}),
 			headers: { 
 				'Content-Type': 'application/json',
+				'Accept': 'application/json',
 				'Access-Control-Allow-Credentials': 'true',
 				'X-Requested-With': 'XMLHttpRequest',
 			},
 		});
 
 		if (result.status === 200) {
-			return true;
-		} else if (result.status === 204) {
 			return true;
 		}
 
